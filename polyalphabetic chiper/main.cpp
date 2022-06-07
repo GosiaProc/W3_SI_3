@@ -30,77 +30,30 @@ char table[26][26] = {
 {'Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X'},
 {'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'}
 };
-/*
-int foundIndexX();
-int foundIndexY();
-*/
+
 int main(){
 
-	std::string plaintext = "GEEKSFORGEEKS";
-	std::string keyword = "AYUSH";
-	//ABD
-	
-	std::string chipertext = plaintext;
-	/*
-	std::cout << "Enter text:";
+	std::string plaintext;
+	std::string keyword;
+	std::cout << "Enter text: ";
 	std::cin >> plaintext;
-	std::cout << "Enter keyword:";
+	std::cout << "Enter keyword: ";
 	std::cin >> keyword;
-	*/
-	
+	std::string key = "";
+	std::string cipertext = plaintext;
 
-	//FUNKCJA POKAZUJE KLUCZ DO SZYFROWANIA
-std::string key = "";
 	for (int i = 0; i < plaintext.length(); i++)
 	{
 		key.push_back(keyword[i % keyword.length()]);
-		std::cout << key[i];
+		//std::cout << key[i];  KLUCZ
 	}
 
 	for (int j = 0; j < plaintext.length(); j++)
 	{
 		int index = plaintext[j] - 'A';
 		int keyindex = key[j] - 'A';
-		std::cout << "INDEX:" << index << "\n";
-
-		std::cout << "KEYWORD:" << keyindex << "\n";
-		
-		chipertext[j] = table[index][keyindex];
+		cipertext[j] = table[index][keyindex];
 	}
-	std::cout << chipertext;
-	/*
-	
-
-	for (int i = 0; i < plaintext.length(); i++)
-	{
-		
-		for (int k = 0; k <= 25; k++)
-		{
-			if (key[i] == table[0][k])
-				std::cout << k << "\n" << "\n" << "\n";
-		}
-	}
-	
-	for (int i = 0; i < plaintext.length(); i++)
-	{
-	//	table[foundIndexX][foundIndexY] = chipertext[i];
-	}
-
-		
-
-		*/
-	return 0;
+	std::cout <<"Cipertext: " << cipertext;
+		return 0;
 }
-
-/*
-//FUNKCJA PRZYPISUJĄCA LITERZE Z PODANEGO SŁOWA INDEKS x
-int foundIndexX() {
-
-}
-	
-
-//FUNKCJA PRZYPISUJĄCA LITERZE Z PODANEGO SŁOWA INDEKS y
-int foundIndexY() {
-
-}
-*/
