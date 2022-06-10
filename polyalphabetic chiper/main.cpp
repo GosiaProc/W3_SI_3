@@ -1,6 +1,8 @@
 ﻿#include<iostream>
 #include<string>
 #include<typeinfo>
+#include<algorithm>
+
 
 char table[26][26] = {
 {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'},
@@ -38,7 +40,9 @@ int main(){
 	std::cout << "Enter text: ";
 	std::cin >> plaintext;
 	std::cout << "Enter keyword: ";
+	std::transform(plaintext.begin(), plaintext.end(), plaintext.begin(), ::toupper);
 	std::cin >> keyword;
+	std::transform(keyword.begin(), keyword.end(), keyword.begin(), ::toupper);
 	std::string key = "";
 	std::string cipertext = plaintext;
 
